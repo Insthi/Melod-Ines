@@ -1,0 +1,405 @@
+/* Style de la page d'accueil */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('image/accueil.jpg') center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.5s;
+    flex-direction: column;
+}
+
+.welcome-container {
+    text-align: center;
+    color: white;
+}
+
+.welcome-container h1 {
+
+    font-family: "Lilita One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+button,
+.start-button,
+.back-button,
+#credits-toggle {
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #6a0dad, #9b30ff);
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+
+.start-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #9b30ff, #6a0dad);
+}
+
+#vinyle-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.vinyle-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.audio-player {
+    margin: 20px auto;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #6a0dad;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #9b30ff;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.back-button::before {
+    content: '←';
+}
+
+#buttonsContainer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    gap: 10px;
+}
+
+#prevButton,
+#nextButton {
+    display: none;
+}
+
+.vinyle-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    text-align: left;
+    flex-direction: column;
+}
+
+.vinyle-info {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 300px;
+    color: white;
+    text-align: center;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.vinyle-info h2 {
+    font-size: 1.8em;
+    margin-bottom: 2px;
+    color: #6a0dad;
+    
+}
+
+.vinyle-info h3 {
+    font-size: 1.2em;
+    margin-top: 0; 
+    margin-bottom: 5px; 
+    color: #ddd;
+}
+.vinyle-info h2, 
+.vinyle-info h3 {
+    font-family: "Kanit", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2em !important; 
+    text-align: center; /* Optionnel */
+}
+
+
+
+.vinyle-info p {
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.vinyle-info a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6a0dad;
+    color: white;
+    font-size: 1em;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.vinyle-info a:hover {
+    transform: scale(1.1);
+    background-color: #9b30ff;
+}
+
+@media (max-width: 768px) {
+    .vinyle-content {
+        flex-wrap: nowrap;
+        gap: 10px;
+        overflow-x: auto;
+    }
+
+    .vinyle-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .vinyle-info {
+        position: static;
+        transform: none;
+        max-width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .vinyle-info h2,
+    .vinyle-info h3,
+    .vinyle-info p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyle-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .vinyle-info {
+        max-width: 80%;
+        padding: 5px;
+    }
+
+    .vinyle-info h2,
+    .vinyle-info h3,
+    .vinyle-info p {
+        font-size: 0.7em;
+    }
+}
+
+
+#addMusicModal {
+    background-color: rgba(106, 13, 173, 0.8) !important; /* violet transparent */
+    color: white;
+    width: 40%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+#addMusicForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+#addMusicForm input,
+#addMusicForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+}
+
+#addMusicForm input:focus,
+#addMusicForm textarea:focus {
+    border-color: #ff69b4;
+    outline: none;
+    box-shadow: 0 0 5px #ff69b4;
+}
+
+#addMusicForm button {
+    font-family: "Figtree", serif;
+    background-color: #800080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+#addMusicForm button:hover {
+    background-color: #ff69b4;
+}
+#addMusicModal h2 {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#addMusicForm,
+#addMusicForm label,
+#addMusicForm input,
+#addMusicForm textarea {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#credits-footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#credits-toggle {
+    background: linear-gradient(45deg, #6a0dad, #9b30ff);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#credits-toggle:hover {
+    background: linear-gradient(45deg, #9b30ff, #6a0dad);
+    transform: scale(1.1);
+}
+
+#credits-content {
+    display: none;
+    background-color: rgba(106, 13, 173, 0.8);
+    border: 1px solid #6a0dad;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    width: 200px;
+}
+
+#credits-content a {
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#credits-content a:hover {
+    color: white;
+    text-decoration: underline;
+}
+.audio-player {
+    width: 100%; /* Ajuste la largeur */
+    max-width: 400px;
+    height: 40px; /* Garde la taille minimale */
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.audio-player::-webkit-media-controls-panel {
+    background: linear-gradient(to right, #9b30ff, #ff69b4); /* Violet */
+    border-radius: 15px;
+}
+
+
+
+
